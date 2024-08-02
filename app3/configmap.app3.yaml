@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: index-html
+  namespace: fifty-three
+data:
+  index.html: |
+    app3 33

@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: app3
+  namespace: openshift-gitops
+spec:
+  destination:
+    namespace: app3
+    server: https://kubernetes.default.svc
+  project: default
+  #project: one
+  source:
+    path: app3/
+    repoURL: https://github.com/abavage/argo-deployment
+    targetRevision: main
+  syncPolicy:
+    automated:
+      #prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true

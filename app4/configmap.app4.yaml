@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: index-html
+  namespace: fifty-four
+data:
+  index.html: |
+    app4 444
