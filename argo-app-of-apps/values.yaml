@@ -1,0 +1,43 @@
+#labels:
+#  - version: 0.0.1
+
+applications:
+  - name: app1
+    namespace: ""
+    project: default
+    repo_path: app1/
+    repourl: https://github.com/abavage/argo-deployment
+    branch: main
+    prune: true
+    selfheal: true
+    version: 0.0.1
+
+  - name: app2
+    namespace: ""
+    project: default
+    repo_path: app2/
+    repourl: https://github.com/abavage/argo-deployment
+    branch: main
+    prune: true
+    selfheal: true
+    version: 0.0.2
+  
+  - name: app3
+    namespace: ""
+    project: default
+    repo_path: app3/
+    repourl: https://github.com/abavage/argo-deployment
+    branch: main
+    prune: true
+    selfheal: true
+    version: 0.0.2
+
+  - name: app4
+    namespace: ""
+    project: default
+    repo_path: app4/
+    repourl: https://github.com/abavage/argo-deployment
+    branch: main
+    prune: false
+    selfheal: true
+    version: 0.0.2

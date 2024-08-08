@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: app-of-apps
+  namespace: openshift-gitops
+  labels:
+    name: app-of-apps
+    version: 0.0.1
+spec:
+  destination:
+    namespace:
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: argo-app-of-apps/app-of-apps-parent/
+    repoURL: https://github.com/abavage/argo-deployment
+    targetRevision: main
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
