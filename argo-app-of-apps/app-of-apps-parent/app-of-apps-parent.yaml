@@ -12,7 +12,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: argo-app-of-apps/app-of-apps-parent/
+    path: argo-app-of-apps/
     repoURL: https://github.com/abavage/argo-deployment
     targetRevision: main
   syncPolicy:
