@@ -1,0 +1,3 @@
+projects:
+  - name: customer
+    orphanedresources-warn: "false"
