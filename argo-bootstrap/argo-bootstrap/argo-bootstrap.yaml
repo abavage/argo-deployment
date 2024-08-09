@@ -4,7 +4,7 @@ metadata:
   name: argo-bootstrap
   namespace: openshift-gitops
   labels:
-    name: app-bootstrap
+    name: argo-bootstrap
     version: 0.0.1
 spec:
   destination:
