@@ -24,3 +24,6 @@ argocdcrd:
     enabled: true
   loglevel: info
   statusbadgeenabled: true
+
+clusterrole:
+  name: argocd-cluster-role
