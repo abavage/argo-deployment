@@ -14,13 +14,13 @@ applications:
 
   - name: app2
     namespace: ""
-    project: default
+    project: customer
     repo_path: app2/
     repourl: https://github.com/abavage/argo-deployment
     branch: main
     prune: true
     selfheal: true
-    version: 0.0.2
+    version: 0.0.3
   
   - name: app3
     namespace: ""
