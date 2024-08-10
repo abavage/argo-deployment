@@ -22,3 +22,5 @@ argocdcrd:
     enabled: true
   openShiftOAuth:
     enabled: true
+  loglevel: info
+  statusbadgeenabled: true

@@ -98,6 +98,7 @@ spec:
         enabled: false
     ingress:
       enabled: false
+    logLevel: {{ .Values.argocdcrd.loglevel }}
     resources:
       limits:
         cpu: {{ .Values.argocdcrd.cpu.medium }}
@@ -120,5 +121,6 @@ spec:
           cpu: {{ .Values.argocdcrd.cpu.small }}
           memory: {{ .Values.argocdcrd.memory.small }}
     provider: dex
+  statusBadgeEnabled: {{ .Values.argocdcrd.statusbadgeenabled }}
   tls:
     ca: {}
