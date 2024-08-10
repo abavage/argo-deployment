@@ -1,3 +1,24 @@
 projects:
   - name: customer
     orphanedresources-warn: "false"
+
+argocdcrd:
+  cpu:
+    small: "250m"
+    medium: "500m"
+    large: "1"
+    xlarge: "2"
+  memory:
+    small: "128Mi"
+    medium: "256Mi"
+    large: "500Mi"
+    xlarge: "1000Mi"
+    xxlarge: "2000Mi"
+  grafana:
+    enabled: true
+  monitoring:
+    enabled: true
+  autoscale:
+    enabled: true
+  openShiftOAuth:
+    enabled: true

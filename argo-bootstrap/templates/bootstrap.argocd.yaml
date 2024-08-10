@@ -1,0 +1,124 @@
+apiVersion: argoproj.io/v1beta1
+kind: ArgoCD
+metadata:
+  name: openshift-gitops
+  namespace: openshift-gitops
+spec:
+  applicationSet:
+    resources:
+      limits:
+        cpu: {{ .Values.argocdcrd.cpu.xlarge }}
+        memory: {{ .Values.argocdcrd.memory.xlarge }}
+      requests:
+        cpu: {{ .Values.argocdcrd.cpu.small }}
+        memory: {{ .Values.argocdcrd.memory.large }}
+    webhookServer:
+      ingress:
+        enabled: false
+      route:
+        enabled: false
+  controller:
+    processors: {}
+    resources:
+      limits:
+        cpu: {{  .Values.argocdcrd.cpu.xlarge }}
+        memory: {{ .Values.argocdcrd.memory.xxlarge }}
+      requests:
+        cpu: {{ .Values.argocdcrd.cpu.small }}
+        memory: {{ .Values.argocdcrd.memory.xlarge }}
+    sharding: {}
+  grafana:
+    enabled: {{ .Values.argocdcrd.grafana.enabled }}
+    ingress:
+      enabled: false
+    resources:
+      limits:
+        cpu: {{ .Values.argocdcrd.cpu.medium }} 
+        memory: {{ .Values.argocdcrd.memory.medium }}
+      requests:
+        cpu: {{ .Values.argocdcrd.cpu.small }}
+        memory: {{ .Values.argocdcrd.memory.small }}
+    route:
+      enabled: false
+  ha:
+    enabled: false
+    resources:
+      limits:
+        cpu: {{ .Values.argocdcrd.cpu.medium }}
+        memory: {{ .Values.argocdcrd.memory.medium }}
+      requests:
+        cpu: {{ .Values.argocdcrd.cpu.small }}
+        memory: {{ .Values.argocdcrd.memory.small }}
+  initialSSHKnownHosts: {}
+  monitoring:
+    enabled: {{ .Values.argocdcrd.monitoring.enabled }}
+  notifications:
+    enabled: false
+  prometheus:
+    enabled: false
+    ingress:
+      enabled: false
+    route:
+      enabled: false
+  rbac:
+    defaultPolicy: ""
+    policy: |
+      g, system:cluster-admins, role:admin
+      g, cluster-admins, role:admin
+    scopes: '[groups]'
+  redis:
+    resources:
+      limits:
+        cpu: {{ .Values.argocdcrd.cpu.medium }}
+        memory: {{ .Values.argocdcrd.memory.medium }}
+      requests:
+        cpu: {{ .Values.argocdcrd.cpu.small }}
+        memory: {{ .Values.argocdcrd.memory.small }}
+  repo:
+    resources:
+      limits:
+        cpu: {{ .Values.argocdcrd.cpu.xlarge }}
+        memory: {{ .Values.argocdcrd.memory.xlarge }}
+      requests:
+        cpu: {{ .Values.argocdcrd.cpu.small }}
+        memory: {{ .Values.argocdcrd.memory.medium }}
+  resourceExclusions: |
+    - apiGroups:
+      - tekton.dev
+      clusters:
+      - '*'
+      kinds:
+      - TaskRun
+      - PipelineRun
+  server:
+    autoscale:
+      enabled: {{ .Values.argocdcrd.autoscale.enabled }}
+    grpc:
+      ingress:
+        enabled: false
+    ingress:
+      enabled: false
+    resources:
+      limits:
+        cpu: {{ .Values.argocdcrd.cpu.medium }}
+        memory: {{ .Values.argocdcrd.memory.medium }}
+      requests:
+        cpu: {{ .Values.argocdcrd.cpu.small }}
+        memory: {{ .Values.argocdcrd.memory.small }}
+    route:
+      enabled: true
+    service:
+      type: ""
+  sso:
+    dex:
+      openShiftOAuth: {{ .Values.argocdcrd.openShiftOAuth.enabled }}
+      resources:
+        limits:
+          cpu: {{ .Values.argocdcrd.cpu.medium }}
+          memory: {{ .Values.argocdcrd.memory.medium }}
+        requests:
+          cpu: {{ .Values.argocdcrd.cpu.small }}
+          memory: {{ .Values.argocdcrd.memory.small }}
+    provider: dex
+  tls:
+    ca: {}
