@@ -24,4 +24,5 @@ spec:
       selfHeal: {{ .selfheal }}
     syncOptions:
     - CreateNamespace=true
+    - Validate=true
 {{- end }}
