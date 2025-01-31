@@ -12,8 +12,8 @@ spec:
   name: compliance-operator
   source: redhat-operators
   sourceNamespace: openshift-marketplace
-  #startingCSV: compliance-operator.v1.6.1
-  startingCSV: compliance-operator.v1.5.1
+  startingCSV: compliance-operator.v1.6.1
+  #startingCSV: compliance-operator.v1.5.1
   config:
     nodeSelector:
       node-role.kubernetes.io/worker: ""
