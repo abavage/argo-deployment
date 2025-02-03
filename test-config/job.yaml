@@ -14,13 +14,13 @@ spec:
             - |
               SUBS="openshift-compliance"
 
+              echo sleeping for $SLEEP
+              sleep $SLEEP
+
               for i in $SUBS
                 do
 
                   #IP=$(oc get sub -n $i -o jsonpath='{.items[0].status.installplan.name}')
-
-                  echo sleeping
-                  sleep $SLEEP
 
                   count=0
                   while true
