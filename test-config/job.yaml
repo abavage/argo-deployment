@@ -17,15 +17,16 @@ spec:
               for i in $SUBS
                 do
 
-                  IP=$(oc get sub -n $i -o jsonpath='{.items[0].status.installplan.name}')
+                  #IP=$(oc get sub -n $i -o jsonpath='{.items[0].status.installplan.name}')
 
                   count=0
                   while true
                   do
-                    COUNTIP=$(oc get ip -o name -n $i | wc -l)
-                    if [ $COUNTIP -eq 1 ]
+                    #COUNTIP=$(oc get ip -n $i --no-headers=true | wc -l)
+                    COUNTIP=$(oc get sub -n $i -o jsonpath='{.items[0].status.installplan.name}' | awk -F- '{print $1}'
+                    if [ $COUNTIP == "install" ]
                        then
-                         echo "Install plan $IP is ready"
+                         echo "Install plan is ready"
                          break
                     fi
 
@@ -41,6 +42,8 @@ spec:
 
                   done
 
+                  IP=$(oc get sub -n $i -o jsonpath='{.items[0].status.installplan.name}')
+
                   MANUAL=$(oc get installplan $IP  -n $i -o jsonpath='{.spec.approval}')
                   APPROVED=$(oc get installplan $IP  -n $i -o jsonpath='{.spec.approved}')
                   if [ $MANUAL == "Manual" ] && [ $APPROVED == "false" ]
@@ -55,7 +58,7 @@ spec:
           name: installplan-approver
           env:
             - name: SLEEP
-              value: "5"
+              value: "2"
             - name: NAMESPACE
               valueFrom:
                 fieldRef:
