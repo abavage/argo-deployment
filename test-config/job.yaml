@@ -19,6 +19,9 @@ spec:
 
                   #IP=$(oc get sub -n $i -o jsonpath='{.items[0].status.installplan.name}')
 
+                  echo sleeping
+                  sleep $SLEEP
+
                   count=0
                   while true
                   do
@@ -58,7 +61,7 @@ spec:
           name: installplan-approver
           env:
             - name: SLEEP
-              value: "20"
+              value: "10"
             - name: NAMESPACE
               valueFrom:
                 fieldRef:
