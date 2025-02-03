@@ -22,7 +22,7 @@ spec:
                   count=0
                   while true
                   do
-                    #COUNTIP=$(oc get ip -n $i --no-headers=true | wc -l)
+                    sleep $SLEEP
                     COUNTIP=$(oc get sub -n $i -o jsonpath='{.items[0].status.installplan.name}' | awk -F- '{print $1}')
                     if [ $COUNTIP == "install" ]
                        then
@@ -58,7 +58,7 @@ spec:
           name: installplan-approver
           env:
             - name: SLEEP
-              value: "2"
+              value: "20"
             - name: NAMESPACE
               valueFrom:
                 fieldRef:
