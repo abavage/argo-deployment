@@ -2,7 +2,7 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   name: installplan-approver
-  namepsace: openshift-compliance
+  namespace: openshift-compliance
 spec:
   template:
     spec:
