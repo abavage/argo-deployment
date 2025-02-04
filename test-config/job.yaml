@@ -12,7 +12,8 @@ spec:
             - /bin/bash
             - -c
             - |
-              SUBS="openshift-compliance"
+              #SUBS="openshift-compliance"
+              SUBS="$NAMESPACE"
 
               echo sleeping for $SLEEP
               sleep $SLEEP
