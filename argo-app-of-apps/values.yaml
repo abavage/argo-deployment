@@ -1,5 +1,6 @@
-#labels:
-#  - version: 0.0.1
+cluster_name: this-cluster
+cluster_git_path: "nonprod/this-cluster/infrastructure.yaml"
+
 
 applications:
   - name: app1
@@ -11,6 +12,7 @@ applications:
     prune: true
     selfheal: true
     version: 0.0.1
+    region: nonprod
 
   - name: app2
     namespace: ""

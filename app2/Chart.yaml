@@ -1,0 +1,4 @@
+apiVersion: v2
+name: app2
+description: app2 with values
+version: 0.0.1
