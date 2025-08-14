@@ -16,7 +16,7 @@ applications:
 
   - name: app2
     namespace: ""
-    project: customer
+    project: default
     repo_path: app2/
     repourl: https://github.com/abavage/argo-deployment
     branch: main
