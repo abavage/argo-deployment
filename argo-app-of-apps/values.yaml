@@ -1,5 +1,6 @@
 cluster_name: this-cluster
 cluster_git_path: "nonprod/this-cluster/infrastructure.yaml"
+repoURL: https://github.com/abavage/argo-deployment.git
 
 
 applications:
@@ -7,7 +8,7 @@ applications:
     namespace: ""
     project: default
     repo_path: app1/
-    repourl: https://github.com/abavage/argo-deployment
+    #repourl: https://github.com/abavage/argo-deployment.git
     branch: main
     prune: true
     selfheal: true
@@ -18,7 +19,7 @@ applications:
     namespace: ""
     project: default
     repo_path: app2/
-    repourl: https://github.com/abavage/argo-deployment
+    #repourl: https://github.com/abavage/argo-deployment.git
     branch: main
     prune: true
     selfheal: true
@@ -28,7 +29,7 @@ applications:
     namespace: ""
     project: default
     repo_path: app3/
-    repourl: https://github.com/abavage/argo-deployment
+    #repourl: https://github.com/abavage/argo-deployment
     branch: main
     prune: true
     selfheal: true
@@ -38,7 +39,7 @@ applications:
     namespace: ""
     project: default
     repo_path: app4/
-    repourl: https://github.com/abavage/argo-deployment
+    #repourl: https://github.com/abavage/argo-deployment
     branch: main
     prune: false
     selfheal: true
